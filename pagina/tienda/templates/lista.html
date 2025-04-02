@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Frutas</title>
+</head>
+<body>
+    <h1>Lista de Frutas</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Distribuidora</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fruta in frutas %}
+            <tr>
+                <td>{{ fruta.nombre }}</td>
+                <td>{{ fruta.precio }}</td>
+                <td>{{ fruta.distribuidora }}</td>
+                <td>
+                    <!-- Botón para modificar -->
+                    <a href="{% url 'modificar_fruta' fruta.id %}" class="btn btn-warning">Modificar</a>
+                    
+                    <!-- Botón para eliminar -->
+                    <form method="POST" action="{% url 'eliminar_fruta' fruta.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

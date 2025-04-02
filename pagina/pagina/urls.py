@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from tienda import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('frutas/', views.frutas, name='frutas'),
+    path('', views.fruta_form),
+    path('fruteria/', views.fruta, name='fruta'),
+    path('fruteria/eliminar/<int:fruta_id>/', views.eliminar_fruta, name='eliminar_fruta'),
+    path('fruteria/modificar/<int:fruta_id>/', views.modificar_fruta, name='modificar_fruta'),
 ]
