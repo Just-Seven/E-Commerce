@@ -20,5 +20,9 @@ from tienda import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='pagina principal'),
+    path('frutas/', views.frutas, name='frutas'),
+    path('', views.fruta_form),
+    path('fruteria', views.fruta, name='fruta'),
+    path('fruteria/eliminar/<int:fruta_id>/', views.eliminar_fruta, name='eliminar_fruta'),
+    path('fruteria/modificar/<int:fruta_id>/', views.modificar_fruta, name='modificar_fruta'),
 ]
