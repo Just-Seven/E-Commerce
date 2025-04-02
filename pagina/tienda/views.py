@@ -7,10 +7,10 @@ from tienda.models import Frutas
 def index(request):
     return HttpResponse("Hola mundo, esta es la pagina principal")
 
-def frutas(request):
+"""def frutas(request):
     if request.method == 'GET':
         frutas_disponibles = ["Manzana", "Banana", "Naranja", "Fresa"]
-        return render(request, 'frutas.html', {'frutas': frutas_disponibles})
+        return render(request, 'frutas.html', {'frutas': frutas_disponibles})"""
     
 #############################
 
